@@ -1,19 +1,22 @@
+# -*- coding: utf-8 -*-
+# Importing required packages
 import praw
 import wikipedia
 
+# Setting up praw
 reddit = praw.Reddit('bot1')
 subreddit = reddit.subreddit('all')
 comments = subreddit.stream.comments()
 
-counter = 0
-
-print wikipedia.summary("Wikipedia")
+print("wikibot started successfully")
 
 for comment in comments:
     text = comment.body
+    inputtext = comment.body
     author = comment.author
 
-    if 'spongebob' in text.lower():
-        message = "http://imgur.com/a/nLXF3"
-        comment.reply(message)
-        print("Replied to a spongebob")
+    if 'wikibot!' in text.lower():
+        inputtext = inputtext.replace('wikibot!', '')
+        outputtext = wikipedia.summary(inputtext)
+        comment.reply(outputtext)
+        print("Replied to a request about: ", inputtext)
