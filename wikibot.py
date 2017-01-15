@@ -18,5 +18,6 @@ for comment in comments:
     if 'wikibot!' in text.lower():
         inputtext = inputtext.replace('wikibot!', '')
         outputtext = wikipedia.summary(inputtext)
-        comment.reply(outputtext)
+        message = "**wikibot says: **" + outputtext
+        comment.reply(message)
         print("Replied to a request about: ", inputtext)
