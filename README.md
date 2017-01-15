@@ -1,5 +1,7 @@
 # redditwikibot
-A bot for Reddit that will give a Wikipedia summary when summoned
+A bot for Reddit that will give a Wikipedia summary when summoned using 'wikibot!'.
+
+The bot is currently running as /u/wikib
 
 The python script requires:
 
